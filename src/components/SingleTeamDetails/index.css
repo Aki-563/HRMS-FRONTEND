@@ -1,0 +1,109 @@
+.team-container{
+    width: 90%;
+    max-width: 1110px;
+    margin: auto;
+    padding-top: 80px;
+    padding-bottom: 150px;
+}
+.team-details {
+    padding: 15px;
+    border: solid 1px rgb(190, 190, 190); 
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch; 
+    width: 100%;
+    gap: 20px;
+    height: 300px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.team-img-container{
+    width: 700px;
+    border: none;
+    border-radius: 8px;
+    overflow: hidden;
+}
+.team-img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.team-details-text-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  
+    gap: 20px;
+    flex: 1;
+}
+.team-details-container1 {
+    background-color: aliceblue;
+    padding: 10px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+}
+
+.team-details-container2 {
+    background-color: rgb(255, 255, 255);
+    border: solid;
+    border-width: 1px;
+    border-color: rgb(221, 221, 221);
+    padding: 10px;
+    border-radius: 8px;
+    flex-grow: 1;
+    overflow: auto;
+}
+.team-name{
+    font-size: 30px;
+}
+.team-des{
+    font-size: 14px;
+    color: rgb(51, 51, 51);
+}
+.team-employees-list{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.team-action-container{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 20px;
+}
+.unassign-container{
+    height: 50px;
+    display: flex;
+    justify-content: flex-end;
+}
+.unassign-button{
+    border: none;
+    background-color: #ffc8c8;
+    border-radius: 20px;
+    padding: 18px;
+    width: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.unassign-button:hover {
+  background-color: #ff4444;
+  color: white;
+}
+
+.emplist-container{
+    list-style-type: none;
+    padding: none;
+    margin: none;
+    padding-left: 0;
+    overflow: auto;
+    height: 200px;
+}

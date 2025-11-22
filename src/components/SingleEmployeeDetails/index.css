@@ -1,0 +1,154 @@
+.employee-details-container{
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+}
+.employee-details{
+    margin-top: 20px;
+    padding:15px;
+    border: solid;
+    border-radius: 10px;
+    border-width: 1px;
+    border-color: rgb(203, 203, 203);
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+.employee-detail-img-container{
+    width: 400px;
+    height: 200px;
+    overflow: hidden;
+    border: none;
+    border-radius: 8px;
+    background-color: aliceblue;
+}
+.employee-detail-img{
+    width: 100%;
+    object-fit: contain;
+}
+.employee-detail{
+    display: flex;
+    justify-content: space-between;
+    width: 50%;
+    align-items: flex-start;
+    height: 200px;
+}
+.employee-detail-item{
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 15px; 
+}
+.employee-detail-title{
+    color: rgb(100, 100, 100);
+    margin: 0;
+}
+.employee-detail-answer{
+    font-weight: 500;
+    color: rgb(61, 61, 61);
+    margin: 0;
+}
+.vertical-line {
+  width: 1px;    
+  background-color: #ccc; 
+  height: 200px;
+   
+  margin: 0 20px;    
+}
+
+.edit-user{
+    display: flex;
+    margin-left:70px;
+}
+
+
+.employee-edit-popup {
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  width: 400px;
+  max-width: 90%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.employee-edit-textbox {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.employee-edit-textbox label {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.employee-edit-textbox input {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.add-input-field:focus {
+  border-color: #0b69ff;
+}
+
+.popup-buttons {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+
+.edit-btn-trigger{
+    border: none;
+    background-color: transparent;
+}
+button{
+    cursor: pointer;
+}
+.label{
+    font-size: 12px;
+    font-weight: 500;
+    color: rgb(69, 69, 69);
+}
+.popup-buttons button:hover {
+  opacity: 0.9;
+}
+
+.error-msg{
+    color: rgb(133, 0, 0);
+    font-size: 12px;
+}
+
+.action-buttons{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.edit-icon{
+        font-size: 16px;
+}
+
+
+.delete-popup-buttons{
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+.delete{
+    background-color: #EC6240;
+    width: 100%;
+}
+.delete-cancel{
+    width: 100%;
+}
+
+.delete-popup{
+    padding-top: 1px;
+    text-align: center;
+}

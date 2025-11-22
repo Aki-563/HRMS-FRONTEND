@@ -1,0 +1,22 @@
+.emplist-item{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 10px;
+   
+}
+.email-list{
+    padding-bottom: 2px;
+}
+.l-i-c{
+    width: 20px;
+    height: 20px;
+    border-radius: 100px;
+    overflow: hidden;
+}
+.l-i{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
