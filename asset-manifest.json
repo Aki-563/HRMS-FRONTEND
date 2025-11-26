@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/HRMS-FRONTEND-GH-PAGES/static/css/main.fc7dad60.css",
+    "main.js": "/HRMS-FRONTEND-GH-PAGES/static/js/main.d7554788.js",
+    "static/js/453.d7446e4a.chunk.js": "/HRMS-FRONTEND-GH-PAGES/static/js/453.d7446e4a.chunk.js",
+    "index.html": "/HRMS-FRONTEND-GH-PAGES/index.html",
+    "main.fc7dad60.css.map": "/HRMS-FRONTEND-GH-PAGES/static/css/main.fc7dad60.css.map",
+    "main.d7554788.js.map": "/HRMS-FRONTEND-GH-PAGES/static/js/main.d7554788.js.map",
+    "453.d7446e4a.chunk.js.map": "/HRMS-FRONTEND-GH-PAGES/static/js/453.d7446e4a.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.fc7dad60.css",
+    "static/js/main.d7554788.js"
+  ]
+}
