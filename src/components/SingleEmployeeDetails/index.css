@@ -14,28 +14,45 @@
     border-width: 1px;
     border-color: rgb(203, 203, 203);
     display: flex;
+    flex-direction: column;
     justify-content: flex-start;
     align-items: flex-start;
+    height: fit-content;
 }
 .employee-detail-img-container{
-    width: 400px;
+   width: 100%;       
+    max-width: 350px;
     height: 200px;
     overflow: hidden;
     border: none;
     border-radius: 8px;
-    background-color: aliceblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F5F5F5;
 }
 .employee-detail-img{
     width: 100%;
-    object-fit: contain;
+    object-fit: cover;
 }
 .employee-detail{
     display: flex;
     justify-content: space-between;
-    width: 50%;
+    gap: 40px;
     align-items: flex-start;
-    height: 200px;
+    height: fit-content;
+    
 }
+
+.emp1, .emp2 {
+    display: flex;
+    flex-direction: column;
+    
+    
+    flex: 1;          
+    min-width: 280px; 
+}
+
 .employee-detail-item{
     display: flex;
     align-items: flex-start;
@@ -45,23 +62,30 @@
 .employee-detail-title{
     color: rgb(100, 100, 100);
     margin: 0;
+    min-width: 90px;
 }
 .employee-detail-answer{
     font-weight: 500;
     color: rgb(61, 61, 61);
     margin: 0;
+    word-break: break-word;
 }
 .vertical-line {
   width: 1px;    
   background-color: #ccc; 
-  height: 200px;
+  height: 100px;
+  display: flex;
+  align-self: center;
    
   margin: 0 20px;    
 }
 
 .edit-user{
     display: flex;
-    margin-left:70px;
+}
+
+.icon{
+    font-size: 20px;
 }
 
 
@@ -126,11 +150,28 @@ button{
     display: flex;
     align-items: center;
     gap: 10px;
-    justify-content: center;
+    justify-content: flex-end;
+    width: 100%;
+    margin-bottom: 10px;
+
 }
 
+.single-emp-details{
+    width: 100%;
+    display: flex;
+    padding: 20px;
+    border: none;
+    background-color: aliceblue;
+    border-radius: 10px;
+    align-items: flex-start;
+    gap: 20px;
+    box-sizing: border-box;
+    height: fit-content;
+}
+
+
 .edit-icon{
-        font-size: 16px;
+    font-size: 20px;
 }
 
 
@@ -152,3 +193,9 @@ button{
     padding-top: 1px;
     text-align: center;
 }
+
+.img-detail-icon{
+    font-size: 70px;
+    color: #BDBDBD;
+}
+

@@ -38,7 +38,7 @@ class Login extends Component {
       email,
       password,
     }
-    const url = 'https://hrms-backend-m0q3.onrender.com/api/auth/login'
+    const url = 'https://hrms-backend-turso.vercel.app/api/auth/login'
     const options = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },

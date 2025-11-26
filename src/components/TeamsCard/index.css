@@ -16,6 +16,10 @@
     border: none;
     border-radius: 8px;
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F5F5F5;
 }
 .team-card-img{
     width: 100%;
@@ -37,4 +41,9 @@
 .teams-count{
     color: rgb(134, 134, 134);
     font-weight: 400;
+}
+
+.teams-icon{
+    font-size: 50px;
+    color: #BDBDBD;
 }

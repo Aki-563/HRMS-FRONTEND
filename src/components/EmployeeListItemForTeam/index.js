@@ -1,5 +1,7 @@
 import "./index.css";
 import {Link} from "react-router-dom"
+import { TiUser } from "react-icons/ti";
+
 
 const EmployeeListItemForTeam = (props) => {
   const { eachEmp, checked , checkedIds} = props;
@@ -51,14 +53,15 @@ const EmployeeListItemForTeam = (props) => {
   return(
        
         <div className="employee-list-item">
+            
         <div className="employee-name-img"  >
             <label class="custom-checkbox">
                 <input type="checkbox" checked={checkedIds.includes(id)} onClick = {Handlecheck}/>
                 <span class="checkmark"></span>
             </label>
             <div className="employee-list-image-container">
-                <img src={img_url} alt="employee img" className="employee-list-image"/>
-            </div>
+                            {img_url.length > 20? <img src={img_url} alt="employee img" className="employee-list-image"/> : <TiUser className="employee-alt-list-image"/>}
+                        </div>
             <div className="employee-list-name-container">
                 <p className="employee-list-name">{first_name}</p>
                 <p className="employee-list-name">{last_name}</p>

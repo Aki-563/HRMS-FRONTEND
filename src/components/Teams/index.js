@@ -28,7 +28,7 @@ class Teams extends Component {
     getTeams = async () => {
         this.setState({ isLoading: true, isError: false });
         const jwtToken = Cookies.get('jwt_token');
-        const url = `https://hrms-backend-m0q3.onrender.com/api/teams`;
+        const url = `https://hrms-backend-turso.vercel.app/api/teams`;
         const options = {
             headers: { Authorization: `Bearer ${jwtToken}` }
         };
@@ -70,7 +70,7 @@ class Teams extends Component {
             imgUrl: addImgUrl
         };
 
-        const url = `https://hrms-backend-m0q3.onrender.com/api/teams`;
+        const url = `https://hrms-backend-turso.vercel.app/api/teams`;
         const options = {
             method: 'POST',
             headers: {
@@ -130,7 +130,7 @@ class Teams extends Component {
                     ) : !showTeams ? (
                         
                         <div className="no-teams-view">
-                            <FaDatabase size={40} color="#64748b" />
+                            <FaDatabase size={40} color="#BDBDBD" />
                             <p className="no-teams-text">No Teams Found</p>
                         </div>
                     ) : (

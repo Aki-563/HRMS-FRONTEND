@@ -1,4 +1,4 @@
-import { LuCircleUser } from "react-icons/lu";
+import { TiUser } from "react-icons/ti";
 import {Link, withRouter} from "react-router-dom"
 import "./index.css"
 import Popup from 'reactjs-popup';
@@ -30,7 +30,7 @@ const Header = (props) => {
                             <p>Teams</p>
                 </Link>
                 <Popup trigger={<div className="header-profile-icon">
-                                    <LuCircleUser style={{ color: '#4e4e4eff', fontSize: '30px' }} />
+                                    <TiUser style={{ color: '#BDBDBD', fontSize: '30px' }} />
                                 </div>} 
                                 position="bottom right" offsetY={20} contentStyle={{ width: 'fit-content', height: "fit-content", borderRadius: '10px', padding: '15px' }}>
                                 

@@ -1,5 +1,7 @@
 import "./index.css";
 import {Link} from "react-router-dom"
+import { TiUser } from "react-icons/ti";
+
 
 const EmployeeListItem = (props) => {
   const { eachEmp } = props;
@@ -51,7 +53,7 @@ const EmployeeListItem = (props) => {
         <div className="employee-name-img"  >
             
             <div className="employee-list-image-container">
-                <img src={img_url} alt="employee img" className="employee-list-image"/>
+                {img_url.length > 20? <img src={img_url} alt="employee img" className="employee-list-image"/> : <TiUser className="employee-alt-list-image"/>}
             </div>
             <div className="employee-list-name-container">
                 <p className="employee-list-name">{first_name}</p>

@@ -7,6 +7,7 @@ import { FaUserEdit } from "react-icons/fa";
 import Popup from "reactjs-popup";
 import { MdDelete, MdErrorOutline } from "react-icons/md";
 import { TailSpin } from 'react-loader-spinner';
+import { TiUser } from "react-icons/ti";
 
 class SingleEmployeeDetails extends Component {
   state = {
@@ -30,7 +31,7 @@ class SingleEmployeeDetails extends Component {
     this.setState({ isLoading: true, isError: false });
     const { id } = this.props.match.params;
     const jwtToken = Cookies.get("jwt_token");
-    const url = `https://hrms-backend-m0q3.onrender.com/api/employees/${id}`;
+    const url = `https://hrms-backend-turso.vercel.app/api/employees/${id}`;
     const options = {
       headers: { Authorization: `Bearer ${jwtToken}` },
     };
@@ -79,7 +80,7 @@ class SingleEmployeeDetails extends Component {
     }
 
     const jwtToken = Cookies.get("jwt_token");
-    const url = `https://hrms-backend-m0q3.onrender.com/api/employees/${id}`;
+    const url = `https://hrms-backend-turso.vercel.app/api/employees/${id}`;
 
     const updatedDetails = { firstName, lastName, email, phone };
 
@@ -120,7 +121,7 @@ class SingleEmployeeDetails extends Component {
     this.setState({ isDeleteLoading: true }); 
 
     const jwtToken = Cookies.get("jwt_token");
-    const url = `https://hrms-backend-m0q3.onrender.com/api/employees/${id}`;
+    const url = `https://hrms-backend-turso.vercel.app/api/employees/${id}`;
     const options = { method: "DELETE", headers: { Authorization: `Bearer ${jwtToken}` } }
 
     try {
@@ -178,53 +179,10 @@ class SingleEmployeeDetails extends Component {
               </div>
             ) : (
               <div className="employee-details">
-                <div className="employee-detail-img-container">
-                  <img src={img_url} className="employee-detail-img" alt="Employee-details-image" />
-                </div>
-                <div className="vertical-line"></div>
-                <div className="employee-detail">
-                  <div>
-                    <div className="employee-detail-item">
-                      <p className="employee-detail-title">Full name:</p>
-                      <p className="employee-detail-answer">{first_name}</p>
-                      <p className="employee-detail-answer">{last_name}</p>
-                    </div>
-                    <div className="employee-detail-item">
-                      <p className="employee-detail-title">Role:</p>
-                      <p className="employee-detail-answer">{role}</p>
-                    </div>
-                    <div className="employee-detail-item">
-                      <p className="employee-detail-title">Teams:</p>
-                      <p className="employee-detail-answer">{teams}</p>
-                    </div>
-                    <div className="employee-detail-item">
-                      <p className="employee-detail-title">Joined at:</p>
-                      <p className="employee-detail-answer">
-                        {created_at ? created_at.split(" ")[0] : ""}
-                      </p>
-                    </div>
-                  </div>
-
-                  <div>
-                    <div className="employee-detail-item">
-                      <p className="employee-detail-title">Email:</p>
-                      <p className="employee-detail-answer">{savedEmail}</p>
-                    </div>
-                    <div className="employee-detail-item">
-                      <p className="employee-detail-title">Phone:</p>
-                      <p className="employee-detail-answer">{savedPhone}</p>
-                    </div>
-                    <div className="employee-detail-item">
-                      <p className="employee-detail-title">Gender:</p>
-                      <p className="employee-detail-answer">{gender}</p>
-                    </div>
-                  </div>
-                </div>
-
                 <div className="action-buttons">
-                  <div className="edit-user">
+                  <div className="edit-user icon">
                     <Popup
-                      trigger={<button className="edit-btn-trigger"><FaUserEdit className="edit-icon" /></button>}
+                      trigger={<button className="edit-btn-trigger"><FaUserEdit className="edit-icon grey-color" /></button>}
                       modal
                       nested
                       onOpen={this.initializeEditState}
@@ -278,9 +236,9 @@ class SingleEmployeeDetails extends Component {
                     </Popup>
                   </div>
 
-                  <div className="delete-user">
+                  <div className="delete-user icon">
                     <Popup
-                      trigger={<button className="edit-btn-trigger"><MdDelete className="edit-icon delete-user" /></button>}
+                      trigger={<button className="edit-btn-trigger"><MdDelete className="edit-icon delete-user grey-color" /></button>}
                       modal nested contentStyle={{ width: '400px', borderRadius: '10px', padding: '0px' }}
                     >
                       {(close) => (
@@ -308,6 +266,61 @@ class SingleEmployeeDetails extends Component {
                   </div>
 
                 </div>
+
+                <div className="single-emp-details">
+                  {img_url.length > 20?<div className="employee-detail-img-container">
+                  <img src={img_url} className="employee-detail-img" alt="Employee-details-image" />
+                  </div>: <div className="employee-detail-img-container"><TiUser className="img-detail-icon"/></div>}
+
+                  <div className="vertical-line"></div>
+
+                  <div className="employee-detail">
+                    <div className="emp1">
+                      <div className="employee-detail-item">
+                        <p className="employee-detail-title">Full name:</p>
+                        <p className="employee-detail-answer">{first_name}</p>
+                        <p className="employee-detail-answer">{last_name}</p>
+                      </div>
+                      <div className="employee-detail-item">
+                        <p className="employee-detail-title">Role:</p>
+                        <p className="employee-detail-answer">{role}</p>
+                      </div>
+                      <div className="employee-detail-item">
+                        <p className="employee-detail-title">Teams:</p>
+                        <p className="employee-detail-answer">{teams}</p>
+                      </div>
+                      <div className="employee-detail-item">
+                        <p className="employee-detail-title">Joined at:</p>
+                        <p className="employee-detail-answer">
+                          {created_at ? created_at.split(" ")[0] : ""}
+                        </p>
+                      </div>
+                    </div>
+
+                    <div className="emp2">
+                      <div className="employee-detail-item">
+                        <p className="employee-detail-title">Email:</p>
+                        <p className="employee-detail-answer">{savedEmail}</p>
+                      </div>
+                      <div className="employee-detail-item">
+                        <p className="employee-detail-title">Phone:</p>
+                        <p className="employee-detail-answer">{savedPhone}</p>
+                      </div>
+                      <div className="employee-detail-item">
+                        <p className="employee-detail-title">Gender:</p>
+                        <p className="employee-detail-answer">{gender}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+
+
+                
+
+                
               </div>
 
             )}

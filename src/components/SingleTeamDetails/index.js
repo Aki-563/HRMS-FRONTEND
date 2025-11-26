@@ -8,8 +8,10 @@ import EmpList from "../List"
 import { MdDelete, MdErrorOutline } from "react-icons/md"; 
 import { FaEdit, FaPlus } from "react-icons/fa";
 import { TailSpin } from 'react-loader-spinner'; 
+import { RiTeamFill } from "react-icons/ri";
 
-const API_BASE_URL = "https://hrms-backend-m0q3.onrender.com/api";
+
+const API_BASE_URL = "https://hrms-backend-turso.vercel.app/api";
 
 class SingleTeamDetails extends Component {
     state = {
@@ -319,37 +321,11 @@ class SingleTeamDetails extends Component {
                 <Header />
                 <div className="team-container">
                     <div className="team-action-container">
-                        <div className="delete-team">
-                            <Popup
-                                trigger={<button className="edit-btn-trigger"><MdDelete className="edit-icon delete-user" /></button>}
-                                modal nested
-                                contentStyle={{ width: '400px', borderRadius: '10px', padding: '0px' }}
-                            >
-                                {(close) => (
-                                    <div className="employee-edit-popup delete-popup">
-                                        <h2>Delete Team</h2>
-                                        <div className="delete-container">
-                                            <p className="delete-confirmation-text">Are you sure you want to delete this Team?</p>
-                                            <div className="delete-popup-buttons">
-                                                <button className="delete-cancel cancel-btn" onClick={close}>Cancel</button>
-                                                <button 
-                                                    className="submit-btn delete" 
-                                                    onClick={() => this.deleteTeam(close)}
-                                                    disabled={isDeleteLoading}
-                                                    style={{minWidth: '60px', display: 'flex', justifyContent: 'center'}}
-                                                >
-                                                    {isDeleteLoading ? <TailSpin height="15" width="15" color="white" /> : "Delete"}
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                )}
-                            </Popup>
-                        </div>
+                        
 
                         <div className="edit-team">
                             <Popup
-                                trigger={<button className="edit-btn-trigger"><FaEdit className="edit-icon" /></button>}
+                                trigger={<button className="edit-btn-trigger"><FaEdit className="edit-icon grey-color" /></button>}
                                 modal nested
                                 contentStyle={{ width: '400px', borderRadius: '10px', padding: '0px' }}
                             >
@@ -390,11 +366,39 @@ class SingleTeamDetails extends Component {
                                 )}
                             </Popup>
                         </div>
+
+                        <div className="delete-team">
+                            <Popup
+                                trigger={<button className="edit-btn-trigger"><MdDelete className="edit-icon delete-user grey-color" /></button>}
+                                modal nested
+                                contentStyle={{ width: '400px', borderRadius: '10px', padding: '0px' }}
+                            >
+                                {(close) => (
+                                    <div className="employee-edit-popup delete-popup">
+                                        <h2>Delete Team</h2>
+                                        <div className="delete-container">
+                                            <p className="delete-confirmation-text">Are you sure you want to delete this Team?</p>
+                                            <div className="delete-popup-buttons">
+                                                <button className="delete-cancel cancel-btn" onClick={close}>Cancel</button>
+                                                <button 
+                                                    className="submit-btn delete" 
+                                                    onClick={() => this.deleteTeam(close)}
+                                                    disabled={isDeleteLoading}
+                                                    style={{minWidth: '60px', display: 'flex', justifyContent: 'center'}}
+                                                >
+                                                    {isDeleteLoading ? <TailSpin height="15" width="15" color="white" /> : "Delete"}
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                )}
+                            </Popup>
+                        </div>
                     </div>
 
                     <div className="team-details">
                         <div className="team-img-container">
-                            <img src={img_url} alt="team img" className="team-img" />
+                            {img_url.length > 20? <img src={img_url} alt="team img" className="team-img" />: <RiTeamFill  className="teams-icon"/>}
                         </div>
                         <div className="team-details-text-container">
                             <div className="team-details-container1">
@@ -420,7 +424,7 @@ class SingleTeamDetails extends Component {
                         )}
                     </div>
 
-                    <ul className="team-employees-list">
+                    {(employees && employees.length > 0) ?<ul className="team-employees-list">
                         {employees && employees.map(eachEmp => (
                             <li key={eachEmp.id}>
                                 <EmployeeListItemForTeam
@@ -430,7 +434,10 @@ class SingleTeamDetails extends Component {
                                 />
                             </li>
                         ))}
-                    </ul>
+                    </ul>:  <div className="no-employees-view">
+                                                <RiTeamFill  size={40} color="#BDBDBD" />
+                                                <p className="no-employees-text">No Employees assigned</p>
+                                            </div>}
 
 
                     <Popup

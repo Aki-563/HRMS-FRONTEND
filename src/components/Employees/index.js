@@ -37,14 +37,14 @@ class Employees extends Component {
     female = () => { this.setState({ gender: "female" }, this.getEmployees) }
 
     handleSortChange = (e) => { this.setState({ sortBy: e.target.value }, this.getEmployees); }
-    clearSort = () => { this.setState({ sortBy: "", search: "" }) }
+    clearSort = () => { this.setState({ sortBy: "", search: "" },this.getEmployees) }
     searching = (e) => { this.setState({ search: e.target.value }, this.getEmployees) }
 
     getEmployees = async () => {
         this.setState({ isLoading: true, isError: false })
         const { gender, sortBy, search } = this.state;
         const jwtToken = Cookies.get('jwt_token');
-        const url = `https://hrms-backend-m0q3.onrender.com/api/employees?sort=${sortBy}&gender=${gender}&search=${search}`;
+        const url = `https://hrms-backend-turso.vercel.app/api/employees?sort=${sortBy}&gender=${gender}&search=${search}`;
         const options = {
             headers: { Authorization: `Bearer ${jwtToken}` }
         };
@@ -86,7 +86,7 @@ class Employees extends Component {
         };
 
         const jwtToken = Cookies.get('jwt_token');
-        const url = `https://hrms-backend-m0q3.onrender.com/api/employees`;
+        const url = `https://hrms-backend-turso.vercel.app/api/employees`;
         const options = {
             method: 'POST',
             headers: {
@@ -125,15 +125,14 @@ class Employees extends Component {
         return (
             <>
                 <Header />
-                <div className='employees-container'>
-                    
-                    {showFilterBar && (
+                {showFilterBar && (
                         <div className='employee-filter-bar'>
-                            <div>
+                            <div className='emp-fil-cont'>
+                                <div className='search-cont'>
                                 <input type="search" onChange={this.searching} value={search} className='employee-search-box' placeholder="Search Employee" />
-                            </div>
+                                </div>
 
-                            <div className='filter-right'>
+                                <div className='filter-right'>
                                 <Popup
                                     trigger={
                                         <div className='employee-filter-left'>
@@ -144,31 +143,44 @@ class Employees extends Component {
                                     contentStyle={{ width: '250px', borderRadius: '10px', padding: '0px' }}
                                     position="bottom right"
                                 >
-                                    <div className='filter-popup'>
-                                        <div className='sort-container'>
-                                            <div className='sort-item'>
-                                                <input type="radio" id="new" value="date_new" checked={sortBy === "date_new"} name="sortGroup1" onChange={this.handleSortChange} />
-                                                <label htmlFor='new'>New Joinee First</label>
+                                    
+                                    {close => (
+                                        <div className='filter-popup'>
+                                            <div className='sort-container'>
+                                                <div className='sort-item'>
+                                                    <input type="radio" id="new" value="date_new" checked={sortBy === "date_new"} name="sortGroup1" onChange={this.handleSortChange} />
+                                                    <label htmlFor='new'>Recently Joined</label>
+                                                </div>
+                                                <div className='sort-item'>
+                                                    <input type="radio" id="old" value="date_old" checked={sortBy === "date_old"} name="sortGroup1" onChange={this.handleSortChange} />
+                                                    <label htmlFor='old'>Longest Serving</label>
+                                                </div>
                                             </div>
-                                            <div className='sort-item'>
-                                                <input type="radio" id="old" value="date_old" checked={sortBy === "date_old"} name="sortGroup1" onChange={this.handleSortChange} />
-                                                <label htmlFor='old'>Oldest Employee</label>
+                                            <div className='sort-container'>
+                                                <div className='sort-item'>
+                                                    <input type="radio" id="a" value="name_asc" checked={sortBy === "name_asc"} name="sortGroup1" onChange={this.handleSortChange} />
+                                                    <label htmlFor='a'>A-Z</label>
+                                                </div>
+                                                <div className='sort-item'>
+                                                    <input type="radio" id="z" value="name_desc" checked={sortBy === "name_desc"} name="sortGroup1" onChange={this.handleSortChange} />
+                                                    <label htmlFor='z'>Z-A</label>
+                                                </div>
+                                            </div>
+                                            <div className='clear-filter-button-container'>
+                                                {sortBy !== "" && (
+                                                    <button 
+                                                        className='clear-filter-button' 
+                                                        onClick={() => {
+                                                            this.clearSort();
+                                                            close();
+                                                        }}
+                                                    >
+                                                        Clear
+                                                    </button>
+                                                )}
                                             </div>
                                         </div>
-                                        <div className='sort-container'>
-                                            <div className='sort-item'>
-                                                <input type="radio" id="a" value="name_asc" checked={sortBy === "name_asc"} name="sortGroup1" onChange={this.handleSortChange} />
-                                                <label htmlFor='a'>A-Z</label>
-                                            </div>
-                                            <div className='sort-item'>
-                                                <input type="radio" id="z" value="name_desc" checked={sortBy === "name_desc"} name="sortGroup1" onChange={this.handleSortChange} />
-                                                <label htmlFor='z'>Z-A</label>
-                                            </div>
-                                        </div>
-                                        <div className='clear-filter-button-container'>
-                                            {sortBy !== "" && (<button className='clear-filter-button' onClick={this.clearSort}>Clear</button>)}
-                                        </div>
-                                    </div>
+                                    )}
                                 </Popup>
 
                                 <div className='gender-filter-buttons-container'>
@@ -177,8 +189,12 @@ class Employees extends Component {
                                     <button className={`gender-filter-3 ${gender === "female" ? "selected-gender" : ""}`} onClick={this.female}>Female</button>
                                 </div>
                             </div>
+                            </div>
                         </div>
                     )}
+                <div className='employees-container'>
+                    
+                    
 
 
                     {isLoading ? (
@@ -192,7 +208,7 @@ class Employees extends Component {
                         </div>
                     ) : !showEmployees ? (
                         <div className="no-employees-view">
-                            <FaDatabase size={40} color="#64748b" />
+                            <FaDatabase size={40} color="#BDBDBD" />
                             <p className="no-employees-text">No Employees Found</p>
                         </div>
                     ) : (
@@ -214,7 +230,7 @@ class Employees extends Component {
                     }
                     modal
                     nested
-                    contentStyle={{ width: '400px', borderRadius: '10px', padding: '0px' }}
+                    contentStyle={{ width: '400px', borderRadius: '10px', padding: '0px' , zIndex: 1001}}
                     className="add-popup-overlay"
                 >
                     {close => (

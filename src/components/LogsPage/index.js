@@ -21,7 +21,7 @@ class LogsPage extends Component {
         this.setState({ isLoading: true, isError: false });
         
         const jwtToken = Cookies.get("jwt_token");
-        const url = "https://hrms-backend-m0q3.onrender.com/api/logs"
+        const url = "https://hrms-backend-turso.vercel.app/api/logs"
         const option = {
             headers: {
                 'Content-Type': 'application/json',

@@ -1,5 +1,6 @@
 import "./index.css"
 import {Link} from "react-router-dom"
+import { RiTeamFill } from "react-icons/ri";
 
 const TeamsCard = (props) => {
     const {item} = props
@@ -9,7 +10,7 @@ const TeamsCard = (props) => {
             
             <div className="team-card-container">
             <div className="team-card-img-container">
-                <img src = {img_url} alt = "team img" className="team-card-img"/>
+                {img_url.length > 20? <img src = {img_url} alt = "team img" className="team-card-img"/>: <RiTeamFill className="teams-icon"/>}
             </div>
             <div className="team-card-details">
                 <p className="teams-name">{name}</p>

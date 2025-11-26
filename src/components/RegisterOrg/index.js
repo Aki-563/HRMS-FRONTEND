@@ -51,7 +51,7 @@ handleAdmin = event => {
       email,
       password,
     }
-    const url = 'https://hrms-backend-m0q3.onrender.com/api/auth/register'
+    const url = 'https://hrms-backend-turso.vercel.app/api/auth/register'
     const options = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
